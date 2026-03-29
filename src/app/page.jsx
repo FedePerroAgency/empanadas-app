@@ -1,86 +1,59 @@
 "use client"
 
 import { useState } from 'react'
-import StepPeople from '../components/StepPeople'
-import StepFlavors from '../components/StepFlavors'
-import StepOrdering from '../components/StepOrdering'
-import StepSummary from '../components/StepSummary'
-
-const DEFAULT_FLAVORS = [
-  'Carne Suave (Frita)',
-  'Carne Suave (Horno)',
-  'Carne Cortada a Cuchillo',
-  'Jamón y Queso',
-  'Pollo'
-]
+import { useRouter } from 'next/navigation'
+import { supabase } from '../lib/supabase'
 
 export default function App() {
-  const [step, setStep] = useState(1)
-  const [people, setPeople] = useState([])
-  const [flavors, setFlavors] = useState(DEFAULT_FLAVORS)
-  // orders format: { "Fede": { "Pollo": 2, "Jamón y Queso": 1 }, ... }
-  const [orders, setOrders] = useState({})
+  const router = useRouter()
+  const [loading, setLoading] = useState(false)
 
-  const nextStep = () => setStep(s => Math.min(s + 1, 4))
-  const prevStep = () => setStep(s => Math.max(s - 1, 1))
+  const crearSala = async () => {
+    setLoading(true)
+    try {
+      const { data, error } = await supabase
+        .from('salas')
+        .insert([{ nombre: 'Sala de Pedido' }])
+        .select()
+        .single()
 
-  const restartNight = () => {
-    setStep(1)
-    setPeople([])
-    setFlavors(DEFAULT_FLAVORS)
-    setOrders({})
+      if (error) {
+        throw error
+      }
+
+      if (data && data.id) {
+        router.push(`/sala/${data.id}`)
+      }
+    } catch (err) {
+      console.error('Error creando sala:', err)
+      alert('Error al crear la sala. Por favor, intenta de nuevo.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
-    <div className="glass-panel">
+    <div className="glass-panel text-center">
       <h1>¡Noche de Empanadas!</h1>
       
-      <div className="stepper">
-        {[1, 2, 3, 4].map(num => (
-          <div 
-            key={num} 
-            className={`step-dot ${step === num ? 'active' : ''} ${step > num ? 'completed' : ''}`}
-          />
-        ))}
+      <div style={{ marginBottom: '2rem' }}>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+          Organizá el pedido de empanadas sin vueltas.
+        </p>
+        <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>
+          Creá una sala única, compartí el link con tus amigos<br />
+          y dejá que cada uno elija sus gustos en tiempo real.
+        </p>
       </div>
 
-      {step === 1 && (
-        <StepPeople 
-          people={people} 
-          setPeople={setPeople} 
-          onNext={nextStep} 
-        />
-      )}
-
-      {step === 2 && (
-        <StepFlavors 
-          flavors={flavors} 
-          setFlavors={setFlavors} 
-          onNext={nextStep} 
-          onPrev={prevStep} 
-        />
-      )}
-
-      {step === 3 && (
-        <StepOrdering 
-          people={people} 
-          flavors={flavors} 
-          orders={orders} 
-          setOrders={setOrders} 
-          onNext={nextStep} 
-          onPrev={prevStep} 
-        />
-      )}
-
-      {step === 4 && (
-        <StepSummary 
-          people={people}
-          flavors={flavors}
-          orders={orders}
-          onPrev={prevStep} 
-          onRestart={restartNight}
-        />
-      )}
+      <button 
+        className="btn-primary" 
+        onClick={crearSala}
+        disabled={loading}
+        style={{ fontSize: '1.2rem', padding: '1rem 2rem' }}
+      >
+        {loading ? 'Creando...' : 'Crear Sala de Pedido'}
+      </button>
     </div>
   )
 }
