@@ -1,8 +1,6 @@
 "use client"
 
 import { useState, useEffect, useCallback, useMemo } from 'react'
-import { v4 as uuidv4 } from 'uuid' // wait, I don't have uuid installed. I'll rely on supabase id for inserts or manually generated ids if needed? Supabase gen_random_uuid is automatic if we omit id on insert.
-// Wait, I will just use the Supabase id generation.
 import { useParams } from 'next/navigation'
 import { supabase } from '../../../lib/supabase'
 
