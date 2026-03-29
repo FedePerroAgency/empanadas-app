@@ -443,6 +443,21 @@ function SalaPage() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    className: "btn-primary",
+                    style: {
+                        marginTop: '1rem',
+                        width: '100%',
+                        background: '#eee',
+                        color: 'var(--text-primary)'
+                    },
+                    onClick: ()=>window.location.href = '/',
+                    children: "Volver al Inicio"
+                }, void 0, false, {
+                    fileName: "[project]/src/app/sala/[id]/page.jsx",
+                    lineNumber: 272,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                     className: "btn-secondary",
                     style: {
                         marginTop: '1rem',
@@ -457,7 +472,7 @@ function SalaPage() {
                     children: "Reabrir sala (volver a editar)"
                 }, void 0, false, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 272,
+                    lineNumber: 280,
                     columnNumber: 9
                 }, this)
             ]
@@ -483,7 +498,7 @@ function SalaPage() {
                             children: "⏳"
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 287,
+                            lineNumber: 295,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -497,20 +512,20 @@ function SalaPage() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 288,
+                            lineNumber: 296,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             children: "Tu pedido está guardado. Esperando a los demás participantes..."
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 289,
+                            lineNumber: 297,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 286,
+                    lineNumber: 294,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -524,7 +539,7 @@ function SalaPage() {
                             children: "Tu elección:"
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 293,
+                            lineNumber: 301,
                             columnNumber: 11
                         }, this),
                         myOrdersRaw.filter((p)=>p.cantidad > 0).map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -534,20 +549,20 @@ function SalaPage() {
                                         children: p.gusto
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                        lineNumber: 296,
+                                        lineNumber: 304,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
                                         children: p.cantidad
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                        lineNumber: 297,
+                                        lineNumber: 305,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, p.gusto, true, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 295,
+                                lineNumber: 303,
                                 columnNumber: 13
                             }, this)),
                         myOrdersRaw.filter((p)=>p.cantidad > 0).length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -557,13 +572,13 @@ function SalaPage() {
                             children: "No elegiste nada aún."
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 300,
+                            lineNumber: 308,
                             columnNumber: 68
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 292,
+                    lineNumber: 300,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -583,7 +598,7 @@ function SalaPage() {
                             children: "Estado de la sala:"
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 304,
+                            lineNumber: 312,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -611,19 +626,19 @@ function SalaPage() {
                                     ]
                                 }, name, true, {
                                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                    lineNumber: 309,
+                                    lineNumber: 317,
                                     columnNumber: 17
                                 }, this);
                             })
                         }, void 0, false, {
                             fileName: "[project]/src/app/sala/[id]/page.jsx",
-                            lineNumber: 305,
+                            lineNumber: 313,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 303,
+                    lineNumber: 311,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -632,7 +647,7 @@ function SalaPage() {
                     children: "Volver a editar mi pedido"
                 }, void 0, false, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 317,
+                    lineNumber: 325,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -653,18 +668,18 @@ function SalaPage() {
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 323,
+                        lineNumber: 331,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                    lineNumber: 322,
+                    lineNumber: 330,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/sala/[id]/page.jsx",
-            lineNumber: 285,
+            lineNumber: 293,
             columnNumber: 7
         }, this);
     }
@@ -691,7 +706,7 @@ function SalaPage() {
                         children: "Sala de Pedido"
                     }, void 0, false, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 332,
+                        lineNumber: 340,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -703,13 +718,13 @@ function SalaPage() {
                         children: copyStatus
                     }, void 0, false, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 333,
+                        lineNumber: 341,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 331,
+                lineNumber: 339,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -719,14 +734,14 @@ function SalaPage() {
                         children: userName
                     }, void 0, false, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 338,
+                        lineNumber: 346,
                         columnNumber: 15
                     }, this),
                     ", elegí tus gustos:"
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 338,
+                lineNumber: 346,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -746,7 +761,7 @@ function SalaPage() {
                                 children: flavor
                             }, void 0, false, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 345,
+                                lineNumber: 353,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -759,7 +774,7 @@ function SalaPage() {
                                         children: "−"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                        lineNumber: 347,
+                                        lineNumber: 355,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -767,7 +782,7 @@ function SalaPage() {
                                         children: qty
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                        lineNumber: 354,
+                                        lineNumber: 362,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -776,25 +791,25 @@ function SalaPage() {
                                         children: "+"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                        lineNumber: 355,
+                                        lineNumber: 363,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 346,
+                                lineNumber: 354,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, flavor, true, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 344,
+                        lineNumber: 352,
                         columnNumber: 13
                     }, this);
                 })
             }, void 0, false, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 340,
+                lineNumber: 348,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -815,7 +830,7 @@ function SalaPage() {
                         }
                     }, void 0, false, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 368,
+                        lineNumber: 376,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -828,13 +843,13 @@ function SalaPage() {
                         children: "Ok"
                     }, void 0, false, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 376,
+                        lineNumber: 384,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 367,
+                lineNumber: 375,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -849,7 +864,7 @@ function SalaPage() {
                 children: "Terminar mi pedido"
             }, void 0, false, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 381,
+                lineNumber: 389,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -880,7 +895,7 @@ function SalaPage() {
                                 children: "Total en vivo"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 405,
+                                lineNumber: 413,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -890,13 +905,13 @@ function SalaPage() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 406,
+                                lineNumber: 414,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 404,
+                        lineNumber: 412,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -923,7 +938,7 @@ function SalaPage() {
                                     ]
                                 }, f, true, {
                                     fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                    lineNumber: 410,
+                                    lineNumber: 418,
                                     columnNumber: 13
                                 }, this)),
                             grandTotal === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -934,25 +949,25 @@ function SalaPage() {
                                 children: "Nadie pidió todavía..."
                             }, void 0, false, {
                                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                                lineNumber: 415,
+                                lineNumber: 423,
                                 columnNumber: 14
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/sala/[id]/page.jsx",
-                        lineNumber: 408,
+                        lineNumber: 416,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/sala/[id]/page.jsx",
-                lineNumber: 390,
+                lineNumber: 398,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/sala/[id]/page.jsx",
-        lineNumber: 330,
+        lineNumber: 338,
         columnNumber: 5
     }, this);
 }

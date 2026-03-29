@@ -270,6 +270,14 @@ export default function SalaPage() {
         </button>
         
         <button 
+          className="btn-primary" 
+          style={{ marginTop: '1rem', width: '100%', background: '#eee', color: 'var(--text-primary)' }}
+          onClick={() => window.location.href = '/'}
+        >
+          Volver al Inicio
+        </button>
+        
+        <button 
           className="btn-secondary" 
           style={{ marginTop: '1rem', width: '100%', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', textDecoration: 'underline' }}
           onClick={() => updateQuantity(STATE_KEY, 0)}
