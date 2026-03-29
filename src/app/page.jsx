@@ -11,22 +11,26 @@ export default function App() {
   const crearSala = async () => {
     setLoading(true)
     try {
+      // Generamos el ID manualmente por si la tabla no tiene configurado un valor por defecto
+      const newId = crypto.randomUUID()
+      
       const { data, error } = await supabase
         .from('salas')
-        .insert([{ nombre: 'Sala de Pedido' }])
+        .insert([{ id: newId, nombre_sala: 'Sala de Pedido' }])
         .select()
         .single()
 
       if (error) {
+        console.error('Error detallado de Supabase:', error)
         throw error
       }
 
-      if (data && data.id) {
-        router.push(`/sala/${data.id}`)
-      }
+      const salaId = data?.id || newId; // Fallback por si .select() falla por RLS
+      router.push(`/sala/${salaId}`)
     } catch (err) {
-      console.error('Error creando sala:', err)
-      alert('Error al crear la sala. Por favor, intenta de nuevo.')
+      console.error('Error atrapado:', err)
+      // Mostramos un alert con el detalle de Supabase para entender fácil si es RLS u otra cosa
+      alert(`Error al crear la sala: ${err.message || err.details || 'Revisa la consola'}`)
     } finally {
       setLoading(false)
     }

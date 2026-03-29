@@ -21,6 +21,7 @@ export default function SalaPage() {
   const [pedidos, setPedidos] = useState([])
   const [loading, setLoading] = useState(true)
   const [copyStatus, setCopyStatus] = useState('Copiar Link')
+  const [newFlavor, setNewFlavor] = useState('')
 
   // Load initial data and Setup Realtime
   useEffect(() => {
@@ -128,9 +129,22 @@ export default function SalaPage() {
     }
   }
 
+  const handleAddCustomFlavor = () => {
+    if (!newFlavor.trim()) return;
+    const flavor = newFlavor.trim();
+    updateQuantity(flavor, 1);
+    setNewFlavor('');
+  }
+
+  const allFlavors = useMemo(() => {
+    const customFlavors = new Set(pedidos.map(p => p.gusto))
+    FLAVORS.forEach(f => customFlavors.delete(f))
+    return [...FLAVORS, ...Array.from(customFlavors)]
+  }, [pedidos])
+
   const totalsByFlavor = useMemo(() => {
     const totals = {}
-    FLAVORS.forEach(f => totals[f] = 0)
+    allFlavors.forEach(f => totals[f] = 0)
     pedidos.forEach(p => {
       if (totals[p.gusto] !== undefined) {
         totals[p.gusto] += p.cantidad
@@ -139,7 +153,7 @@ export default function SalaPage() {
       }
     })
     return totals
-  }, [pedidos])
+  }, [pedidos, allFlavors])
 
   const grandTotal = useMemo(() => {
     return Object.values(totalsByFlavor).reduce((a, b) => a + b, 0)
@@ -181,7 +195,7 @@ export default function SalaPage() {
       <p>Hola <strong>{userName}</strong>, elegí tus gustos:</p>
 
       <div className="list-container" style={{ maxHeight: 'none' }}>
-        {FLAVORS.map(flavor => {
+        {allFlavors.map(flavor => {
           const qty = getMyQty(flavor)
           return (
             <div key={flavor} className="list-item">
@@ -205,6 +219,20 @@ export default function SalaPage() {
             </div>
           )
         })}
+      </div>
+
+      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' }}>
+        <input 
+          type="text" 
+          placeholder="Añadir otro gusto (ej. Cebolla)" 
+          value={newFlavor} 
+          onChange={e => setNewFlavor(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleAddCustomFlavor()}
+          style={{ flex: 1 }}
+        />
+        <button className="btn-primary" style={{ marginTop: 0, width: 'auto' }} onClick={handleAddCustomFlavor}>
+          Agregar
+        </button>
       </div>
 
       {/* Ticking Totalizer (Bottom Fixed inside panel for mobile) */}

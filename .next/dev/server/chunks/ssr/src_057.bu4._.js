@@ -34,20 +34,24 @@ function App() {
     const crearSala = async ()=>{
         setLoading(true);
         try {
+            // Generamos el ID manualmente por si la tabla no tiene configurado un valor por defecto
+            const newId = crypto.randomUUID();
             const { data, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$supabase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["supabase"].from('salas').insert([
                 {
-                    nombre: 'Sala de Pedido'
+                    id: newId,
+                    nombre_sala: 'Sala de Pedido'
                 }
             ]).select().single();
             if (error) {
+                console.error('Error detallado de Supabase:', error);
                 throw error;
             }
-            if (data && data.id) {
-                router.push(`/sala/${data.id}`);
-            }
+            const salaId = data?.id || newId; // Fallback por si .select() falla por RLS
+            router.push(`/sala/${salaId}`);
         } catch (err) {
-            console.error('Error creando sala:', err);
-            alert('Error al crear la sala. Por favor, intenta de nuevo.');
+            console.error('Error atrapado:', err);
+            // Mostramos un alert con el detalle de Supabase para entender fácil si es RLS u otra cosa
+            alert(`Error al crear la sala: ${err.message || err.details || 'Revisa la consola'}`);
         } finally{
             setLoading(false);
         }
@@ -59,7 +63,7 @@ function App() {
                 children: "¡Noche de Empanadas!"
             }, void 0, false, {
                 fileName: "[project]/src/app/page.jsx",
-                lineNumber: 37,
+                lineNumber: 41,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -75,7 +79,7 @@ function App() {
                         children: "Organizá el pedido de empanadas sin vueltas."
                     }, void 0, false, {
                         fileName: "[project]/src/app/page.jsx",
-                        lineNumber: 40,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -87,20 +91,20 @@ function App() {
                             "Creá una sala única, compartí el link con tus amigos",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                 fileName: "[project]/src/app/page.jsx",
-                                lineNumber: 44,
+                                lineNumber: 48,
                                 columnNumber: 63
                             }, this),
                             "y dejá que cada uno elija sus gustos en tiempo real."
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/page.jsx",
-                        lineNumber: 43,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/page.jsx",
-                lineNumber: 39,
+                lineNumber: 43,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -114,13 +118,13 @@ function App() {
                 children: loading ? 'Creando...' : 'Crear Sala de Pedido'
             }, void 0, false, {
                 fileName: "[project]/src/app/page.jsx",
-                lineNumber: 49,
+                lineNumber: 53,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/page.jsx",
-        lineNumber: 36,
+        lineNumber: 40,
         columnNumber: 5
     }, this);
 }
