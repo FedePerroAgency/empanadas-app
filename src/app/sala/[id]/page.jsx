@@ -335,7 +335,7 @@ export default function SalaPage() {
           <button className="btn-secondary" onClick={handleAddCustomFlavor}>Agregar</button>
         </div>
 
-        <button className="btn-primary" onClick={() => updateQuantity(STATE_KEY, 1)} style={{ padding: '1.25rem', marginBottom: '8rem', fontSize: '1.1rem', borderRadius: '12px' }}>Terminar mi pedido</button>
+        <button className="btn-primary" onClick={() => updateQuantity(STATE_KEY, 1)} style={{ padding: '1.25rem', fontSize: '1.1rem', borderRadius: '12px' }}>Terminar mi pedido</button>
 
         <div className="bottom-bar">
           <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
@@ -344,7 +344,7 @@ export default function SalaPage() {
               <h3 style={{ margin: 0, fontSize: '1.5rem' }}>{grandTotal} empanadas</h3>
             </div>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', maxHeight: '80px', overflowY: 'auto' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', maxHeight: '60px', overflowY: 'auto' }}>
             {Object.entries(totalsByFlavor).filter(([_, qty]) => qty > 0).map(([f, qty]) => (
               <div key={f} className="status-badge" style={{ background: '#F3F3F3', color: '#000' }}>{qty} {f}</div>
             ))}
