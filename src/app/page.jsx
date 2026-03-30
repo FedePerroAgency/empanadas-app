@@ -37,27 +37,28 @@ export default function App() {
   }
 
   return (
-    <div className="glass-panel text-center">
-      <h1>¡Noche de Empanadas!</h1>
-      
-      <div style={{ marginBottom: '2rem' }}>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>
-          Organizá el pedido de empanadas sin vueltas.
-        </p>
-        <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>
-          Creá una sala única, compartí el link con tus amigos<br />
-          y dejá que cada uno elija sus gustos en tiempo real.
-        </p>
-      </div>
+    <div className="main-wrapper">
+      <div className="glass-panel text-left" style={{ paddingTop: '5rem' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>¡Noche de Empanadas!</h1>
+        
+        <div style={{ marginBottom: '3rem' }}>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+            Organizá el pedido de empanadas sin vueltas.
+          </p>
+          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}>
+            Creá una sala única, compartí el link con tus amigos y dejá que cada uno elija sus gustos en tiempo real.
+          </p>
+        </div>
 
-      <button 
-        className="btn-primary" 
-        onClick={crearSala}
-        disabled={loading}
-        style={{ fontSize: '1.2rem', padding: '1rem 2rem' }}
-      >
-        {loading ? 'Creando...' : 'Crear Sala de Pedido'}
-      </button>
+        <button 
+          className="btn-primary" 
+          onClick={crearSala}
+          disabled={loading}
+          style={{ fontSize: '1.1rem', padding: '1.25rem', borderRadius: '12px' }}
+        >
+          {loading ? 'Creando...' : 'Crear Sala de Pedido'}
+        </button>
+      </div>
     </div>
   )
 }

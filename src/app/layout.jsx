@@ -12,9 +12,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body>
-        <div id="root">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   )
