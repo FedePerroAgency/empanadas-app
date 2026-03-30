@@ -59,12 +59,14 @@ body {
 
 .glass-panel {
   padding: 1.5rem;
+  padding-bottom: 12rem;
   animation: fadeIn 0.3s ease-out;
 }
 
 @media (min-width: 768px) {
   .glass-panel {
     padding: 3rem 4rem;
+    padding-bottom: 12rem;
   }
 }
 
