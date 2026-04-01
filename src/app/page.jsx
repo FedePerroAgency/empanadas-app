@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '../lib/supabase'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Loader2, PlusCircle } from "lucide-react"
 
 export default function App() {
   const router = useRouter()
@@ -11,54 +14,66 @@ export default function App() {
   const crearSala = async () => {
     setLoading(true)
     try {
-      // Generamos el ID manualmente por si la tabla no tiene configurado un valor por defecto
       const newId = crypto.randomUUID()
-      
+
       const { data, error } = await supabase
         .from('salas')
         .insert([{ id: newId, nombre_sala: 'Sala de Pedido' }])
         .select()
         .single()
 
-      if (error) {
-        console.error('Error detallado de Supabase:', error)
-        throw error
-      }
+      if (error) throw error
 
-      const salaId = data?.id || newId; // Fallback por si .select() falla por RLS
+      const salaId = data?.id || newId
       router.push(`/sala/${salaId}`)
     } catch (err) {
-      console.error('Error atrapado:', err)
-      // Mostramos un alert con el detalle de Supabase para entender fácil si es RLS u otra cosa
-      alert(`Error al crear la sala: ${err.message || err.details || 'Revisa la consola'}`)
+      console.error('Error:', err)
+      alert(`Error al crear la sala: ${err.message || 'Revisa la consola'}`)
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="main-wrapper">
-      <div className="glass-panel text-left" style={{ paddingTop: '5rem' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>¡Noche de Empanadas!</h1>
-        
-        <div style={{ marginBottom: '3rem' }}>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-            Organizá el pedido de empanadas sin vueltas.
+    <main className="min-h-screen flex items-center justify-center p-4 bg-slate-50">
+      <Card className="max-w-2xl w-full glass-card border-none shadow-2xl">
+        <CardHeader className="space-y-6 pt-12">
+          <div className="flex justify-center mb-4">
+            <div className="bg-primary/10 p-4 rounded-full">
+              <span className="text-4xl">🥟</span>
+            </div>
+          </div>
+          <CardTitle className="text-4xl md:text-5xl font-extrabold text-center tracking-tight">
+            ¡Noche de <span className="text-primary">Empanadas!</span>
+          </CardTitle>
+          <CardDescription className="text-lg md:text-xl text-center max-w-md mx-auto text-slate-600">
+            Organizá el pedido de empanadas sin vueltas. Compartí el link y elegí en tiempo real.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col items-center gap-8 pb-12">
+          <p className="text-sm text-slate-500 text-center max-w-sm">
+            Creá una sala única, compartí el link con tus amigos y dejá que cada uno elija sus gustos favoritos.
           </p>
-          <p style={{ fontSize: '1.1rem', color: 'var(--text-secondary)' }}>
-            Creá una sala única, compartí el link con tus amigos y dejá que cada uno elija sus gustos en tiempo real.
-          </p>
-        </div>
 
-        <button 
-          className="btn-primary" 
-          onClick={crearSala}
-          disabled={loading}
-          style={{ fontSize: '1.1rem', padding: '1.25rem', borderRadius: '12px' }}
-        >
-          {loading ? 'Creando...' : 'Crear Sala de Pedido'}
-        </button>
-      </div>
-    </div>
+          <Button
+            size="lg"
+            className="bg-neutral-950 w-full md:w-auto px-8 py-7 rounded-2xl text-lg font-bold shadow-xl  transition-all hover:scale-105 active:scale-95"
+            onClick={crearSala}
+            disabled={loading}
+          >
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Creando sala...
+              </>
+            ) : (
+              <>
+                Crear Sala de Pedido
+              </>
+            )}
+          </Button>
+        </CardContent>
+      </Card>
+    </main>
   )
 }

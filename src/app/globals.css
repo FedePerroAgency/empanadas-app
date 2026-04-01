@@ -1,237 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --bg: #F6F6F6;
-  --surface: #FFFFFF;
-  --border: #EEEEEE;
-  --accent: #06C167;
-  --accent-hover: #05A357;
-  --text-primary: #000000;
-  --text-secondary: #545454;
-  --danger: #FF2E2E;
-  --success: #06C167;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --container-max: 1100px;
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 151 94% 39%;
+    /* #06C167 - Uber Eats Green */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 151 94% 39%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 151 94% 39%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 151 94% 39%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 151 94% 39%;
+  }
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  min-height: 100vh;
-}
-
-/* Fluid Container */
-.main-wrapper {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
-  background: var(--surface);
-  min-height: 100vh;
-  position: relative;
-}
-
-/* On very large screens, add a slight shadow to the entire app shell */
-@media (min-width: 1100px) {
   body {
-    padding: 2rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .main-wrapper {
-    box-shadow: var(--shadow-lg);
-    border-radius: 16px;
-    min-height: auto;
-    overflow: hidden;
+    @apply bg-slate-50 text-foreground antialiased min-h-screen;
+    font-family: 'Inter', sans-serif;
   }
 }
 
-.glass-panel {
-  padding: 1.5rem;
-  padding-bottom: 12rem;
-  animation: fadeIn 0.3s ease-out;
-}
-
-@media (min-width: 768px) {
-  .glass-panel {
-    padding: 3rem 4rem;
-    padding-bottom: 12rem;
+/* Glassmorphism custom components */
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
   }
 }
 
-/* Typography */
-h1 {
-  font-weight: 700;
-  font-size: 1.75rem;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Inputs & Buttons */
-input[type="text"] {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  background: #F3F3F3;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.2s;
-}
-
-input:focus {
-  background: #FFF;
-  border-color: #000;
-}
-
-button {
-  cursor: pointer;
-  font-weight: 600;
-  padding: 0.85rem 1.25rem;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-.btn-primary {
-  background: #000;
-  color: #FFF;
-}
-
-.btn-primary:hover {
-  background: #333;
-}
-
-.btn-secondary {
-  background: #F3F3F3;
-  color: #000;
-}
-
-.btn-success {
-  background: var(--accent);
-  color: #FFF;
-}
-
-/* Responsive List Grid */
-.list-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  /* Items have borders */
-}
-
-@media (min-width: 900px) {
-  .list-container {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .list-item {
-    border-bottom: 1px solid var(--border) !important;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem !important;
-    background: #FFF;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .list-item:hover {
-    box-shadow: var(--shadow-md);
-  }
-}
-
-.list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.counter-control {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.btn-icon {
-  background: #F3F3F3;
-  border-radius: 50%;
-  width: 2.25rem;
-  height: 2.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-}
-
-/* Summary Blocks */
-.summary-block {
-  margin-bottom: 2rem;
-  border-top: 1px solid #000;
-  padding-top: 1.5rem;
-}
-
-/* Sticky Bottom Bar */
-.bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #FFF;
-  padding: 1.25rem;
-  border-top: 1px solid var(--border);
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
-  z-index: 100;
-}
-
-@media (min-width: 1100px) {
-  .bottom-bar {
-    border-radius: 0 0 16px 16px;
-  }
-}
-
-.status-badge {
-  padding: 0.35rem 0.85rem;
-  border-radius: 100px;
-  background: #F3F3F3;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.status-badge.active {
-  background: #E6F9F0;
-  color: var(--accent);
+.animate-in {
+  animation: fadeIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
@@ -244,8 +82,4 @@ button {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-in {
-  animation: fadeIn 0.4s ease-out;
 }
